@@ -36,5 +36,9 @@
     {
       "name": "Iridescently"
     }
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iridescent1208234593-debug/iridescently-atmospheric-gallery.git"
+  }
 }
