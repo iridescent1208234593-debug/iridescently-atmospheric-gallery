@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atmospheric Gallery · Iridescently</title>
+  <meta
+        name="description"
+        content="A Three.js depth gallery where images shape their own environment — mood-driven GLSL backgrounds, parallax motion, and velocity-reactive effects." />
+  <meta
+        name="keywords"
+        content="three.js, webgl, codrops, scroll, 3d gallery, depth, z-axis, mood, motion" />
+  <meta name="author" content="Codrops" />
+  <script>
+    document.documentElement.className = 'js'
+  </script>
+</head>
+
+<body class="demo-1">
+  <main>
+    <header class="frame">
+      <h1 class="frame__title">
+        Based on Atmospheric Depth Gallery by
+        <a href="https://houmahani.com" target="_blank">Houmahani Kane</a>
+      </h1>
+      <a class="frame__back" href="https://tympanus.net/codrops/?p=111409">Article</a>
+      <a class="frame__archive" href="https://tympanus.net/codrops/hub/">All demos</a>
+      <a class="frame__github" href="https://github.com/houmahani/codrops-depth-gallery/">GitHub</a>
+      <nav class="frame__tags">
+        <a href="https://tympanus.net/codrops/hub/tag/scroll/">#scroll</a>
+        <a href="https://tympanus.net/codrops/hub/tag/three-js/">#three.js</a>
+        <a href="https://tympanus.net/codrops/hub/tag/webgl/">#webgl</a>
+        <a href="https://tympanus.net/codrops/hub/tag/glsl/">#glsl</a>
+      </nav>
+      <nav class="frame__credit">
+        <p>
+          Color chip layout inspired by
+          <a href="https://www.instagram.com/p/DU2JTU_AEwM/?img_index=3" target="_blank">@thisislandscape</a>
+        </p>
+        <p>Press D to see the debug tools</p>
+      </nav>
+    </header>
+    <div class="content">
+      <canvas class="webgl"></canvas>
+    </div>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+
+</html>

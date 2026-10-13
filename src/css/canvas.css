@@ -1,0 +1,244 @@
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  touch-action: none;
+  z-index: 0;
+}
+
+.debug-pane {
+  position: fixed;
+  right: 1rem;
+  top: 4rem;
+  z-index: 2000;
+}
+
+.fps-stats {
+  position: fixed !important;
+  left: max(1.5rem, env(safe-area-inset-left)) !important;
+  top: max(3.5rem, env(safe-area-inset-top)) !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 2000 !important;
+  pointer-events: none;
+}
+
+@media (max-width: 53em) {
+  .debug-pane {
+    top: auto;
+    right: max(1.2rem, env(safe-area-inset-right));
+    bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
+
+.velocity-visualizer {
+  position: fixed;
+  left: max(1.52rem, env(safe-area-inset-left));
+  bottom: max(4.75rem, env(safe-area-inset-bottom));
+  z-index: 2000;
+  width: 220px;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(4, 10, 18, 0.8);
+  backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-family: var(--ui-font);
+  text-transform: uppercase;
+  letter-spacing: var(--ui-tracking);
+  pointer-events: none;
+}
+
+.velocity-visualizer__label,
+.velocity-visualizer__value {
+  margin: 0;
+  font-size: 10px;
+}
+
+.velocity-visualizer__value {
+  margin-top: 0.25rem;
+}
+
+.velocity-visualizer__track {
+  position: relative;
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.velocity-visualizer__fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: #7fffd4;
+}
+
+.plane-label-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  transition: opacity 260ms ease;
+  color: rgba(244, 244, 244, 0.92);
+}
+
+.plane-label-overlay__left {
+  position: absolute;
+  left: clamp(2.5rem, 8vw, 12rem);
+  top: 50%;
+  transform: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.plane-label-overlay__index {
+  margin: 0;
+  font-size: 9px;
+  opacity: 1;
+}
+
+.plane-label-overlay__chip {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.plane-label-overlay__right {
+  position: absolute;
+  right: clamp(2.5rem, 7vw, 10rem);
+  top: 50%;
+  transform: none;
+}
+
+.plane-label-card {
+  width: min(28vw, 360px);
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  pointer-events: none;
+  opacity: 1;
+  color: inherit;
+  font-family: var(--ui-font);
+  text-transform: uppercase;
+  letter-spacing: var(--ui-tracking);
+  line-height: 1.15;
+}
+
+.plane-label-card__word {
+  margin: 0;
+  font-size: clamp(9px, 0.78vw, 11px);
+  white-space: nowrap;
+}
+
+.plane-label-card__specs {
+  margin: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.plane-label-card__row {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+.plane-label-card__row dt,
+.plane-label-card__row dd {
+  margin: 0;
+}
+
+.plane-label-card__row dt {
+  font-size: 9px;
+  opacity: 1;
+}
+
+.plane-label-card__value {
+  font-size: clamp(9px, 0.72vw, 11px);
+  opacity: 1;
+}
+
+@media (max-width: 53em) {
+  .plane-label-overlay {
+    inset: auto 0 max(6.25rem, env(safe-area-inset-bottom)) 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 1.5rem;
+    row-gap: 0.55rem;
+    padding: 0 max(1rem, env(safe-area-inset-right)) 0 max(1rem, env(safe-area-inset-left));
+  }
+
+  .plane-label-overlay__left {
+    position: static;
+    transform: none;
+    gap: 0.5rem;
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .plane-label-overlay__right {
+    position: static;
+    transform: none;
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .plane-label-card {
+    width: auto;
+    max-width: min(58vw, 270px);
+  }
+
+  .plane-label-card__word {
+    font-size: 10px;
+  }
+
+  .plane-label-card__row {
+    grid-template-columns: 2.8rem 1fr;
+    gap: 0.6rem;
+  }
+
+  .plane-label-card__value {
+    font-size: 9px;
+  }
+}
+
+/* Real filenames wrap without changing their spelling or case. */
+.plane-label-card__word {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-transform: none;
+  max-width: min(26vw, 290px);
+  line-height: 1.6;
+}
+.palette-debug {
+  position: fixed;
+  left: 12px;
+  top: 64px;
+  z-index: 100;
+  max-width: min(440px, 44vw);
+  max-height: 75vh;
+  overflow: auto;
+  padding: 12px;
+  background: rgba(12, 16, 24, 0.9);
+  color: #eee;
+  font-size: 10px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  text-transform: none;
+  pointer-events: auto;
+}
+@media (max-width: 53em) {
+  .plane-label-card__word {
+    max-width: 70vw;
+  }
+}
